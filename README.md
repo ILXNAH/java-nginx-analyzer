@@ -70,6 +70,8 @@ Windows (PowerShell):
 (Invoke-WebRequest -Uri "http://localhost:9400/metrics" -UseBasicParsing).Content -split "`n" | Where-Object {$_ -match "nginxlog_status_group_total" -and $_ -notmatch "# "}
 ```
 
+👉 Alternativně můžeš metriky zobrazit i přímo v prohlížeči: [http://localhost:9400/metrics](http://localhost:9400/metrics)
+
 ### Spuštění v Dockeru
 Aplikaci je možné zabalit do Docker image a spustit v kontejneru.
 
