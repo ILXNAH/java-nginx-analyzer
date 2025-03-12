@@ -107,14 +107,14 @@ Windows (PowerShell):
 ---
 
 ## Soubory a konfigurace
-### 📝 Dockerfile
+### Dockerfile
 Obsahuje instrukce pro sestavení Docker image:
 - Použití Eclipse Temurin JDK 21
 - Kopírování zdrojového kódu
 - Sestavení aplikace pomocí Gradle
 - Spuštění aplikace
 
-### 🚫 .dockerignore
+### .dockerignore
 Aby se minimalizovala velikost image, ignorují se:
 ```bash
 .git       # Nebude kopírován Git repozitář
@@ -123,7 +123,7 @@ build/     # Nebude kopírována složka se zkompilovanými soubory
 .DS_Store  # Skryté soubory od Finderu (MacOS) nebudou kopírovány
 ```
 
-### ⚙️ Gradle konfigurace (build.gradle)
+### Gradle konfigurace (build.gradle)
 #### Použití Shadow pluginu pro sestavení Fat JAR souboru
 - Aplikace je distribuována jako Fat JAR, tzn. všechny závislosti jsou zabaleny do jednoho .jar souboru
 - Pro sestavení tohoto Fat JAR souboru se používá Shadow plugin
