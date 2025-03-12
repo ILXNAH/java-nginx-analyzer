@@ -106,7 +106,7 @@ build/     # Nebude kopírována složka se zkompilovanými soubory
 ```
 
 ### ⚙️ Gradle konfigurace (build.gradle)
-#### 1️⃣ Použití Shadow pluginu pro sestavení Fat JAR souboru
+#### Použití Shadow pluginu pro sestavení Fat JAR souboru
 - Aplikace je distribuována jako Fat JAR, tzn. všechny závislosti jsou zabaleny do jednoho .jar souboru
 - Pro sestavení tohoto Fat JAR souboru se používá Shadow plugin
 - Konfigurace Main-Class atributu v manifestu umožňuje spustit aplikaci jednoduše pomocí `java -jar`
