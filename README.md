@@ -1,7 +1,8 @@
 # Java Nginx Analyzer (Prometheus Metrics Counter)
 
 ## 📌 Popis projektu
-Tento projekt je jednoduchý analyzátor Nginx logů, který vystavuje Prometheus metriky. Aplikace běží na **Java 21** a je možné ji spustit jak lokálně, tak v Docker kontejneru. Metriky jsou dostupné na:
+Tento projekt je jednoduchý analyzátor Nginx logů, který vystavuje Prometheus metriky. 
+Aplikace běží na **Java 21** a je možné ji spustit jak lokálně, tak v Docker kontejneru. Metriky jsou dostupné na:
 
 http://localhost:9400/metrics
 
@@ -16,16 +17,16 @@ Před spuštěním projektu je nutné mít nainstalované:
 
 ## 🚀 Jak sestavit a spustit aplikaci
 
-### 1️⃣ Lokální spuštění (bez Dockeru)
+### 📍 Lokální spuštění (bez Dockeru)
 Otevři terminál v kořenovém adresáři projektu a postupuj následovně:
 
-1. **Zkompiluj a sestav aplikaci**
+1️⃣ **Zkompiluj a sestav aplikaci**
 
 ```sh
 ./gradlew build
 ```
 
-2. **Spusť aplikaci**
+2️⃣ **Spusť aplikaci**
 
 ```sh
 java -cp "build/libs/*" Main
@@ -37,7 +38,7 @@ Application is running. Press 'e' to stop.
 HTTPServer listening on http://localhost:9400/metrics
 ```
 
-3. **Ověř dostupnost metrik**
+3️⃣ **Ověř dostupnost metrik**
 
 Linux/macOS:
 ```sh
@@ -112,7 +113,7 @@ build/     # Nebude kopírována složka se zkompilovanými soubory
 ## ✅ Shrnutí / Přehled příkazů
 
 | Akce                        | Příkaz |
-|:----------------------------|:------------------:|
+|:----------------------------|:------------------|
 | **Sestavení projektu**      | `./gradlew build` |
 | **Spuštění lokálně**        | `java -cp "build/libs/*" Main` |
 | **Build Docker image**      | `docker build -t java-nginx-analyzer .` |
