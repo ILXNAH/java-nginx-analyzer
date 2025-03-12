@@ -3,8 +3,9 @@
 ## Obsah
 1. 🎯 [Popis projektu](#popis-projektu)
     - 📌 [Poznámka k implementaci](#poznámka-k-implementaci)
-2. 🛠 [Požadavky](#požadavky)
-3. 🚀 [Jak sestavit a spustit aplikaci](#jak-sestavit-a-spustit-aplikaci)
+2. 📂 [Obsah repozitáře](#obsah-repozitáře)
+3. 🛠 [Požadavky](#požadavky)
+4. 🚀 [Jak sestavit a spustit aplikaci](#jak-sestavit-a-spustit-aplikaci)
     - 📍 [Lokální spuštění (bez Dockeru)](#lokální-spuštění-bez-dockeru)
         - 🏗️ [Kompilace a sestavení aplikace](#1️⃣-kompilace-a-sestavení-aplikace)
         - 🏃 [Spuštění aplikace](#2️⃣-spuštění-aplikace)
@@ -13,11 +14,11 @@
         - 🏗️ [Vytvoření Docker image](#1️⃣-vytvoření-docker-image)
         - 🏃 [Spuštění aplikace v kontejneru](#2️⃣-spuštění-aplikace-v-kontejneru)
         - 🔍 [Ověření metrik v Dockeru](#3️⃣-ověření-metrik-v-dockeru)
-4. 📂 [Soubory a konfigurace](#soubory-a-konfigurace)
+5. 📂 [Soubory a konfigurace](#soubory-a-konfigurace)
     - 📝 [Dockerfile](#dockerfile)
     - 🚫 [.dockerignore](#dockerignore)
     - ⚙️ [Gradle konfigurace](#gradle-konfigurace-buildgradle)
-5. 📋 [Přehled příkazů](#přehled-příkazů)
+6. 📋 [Přehled příkazů](#přehled-příkazů)
 
 ---
 
@@ -31,7 +32,30 @@ Tento projekt nebyl vytvořen od základu mnou. Výchozí implementace byla posk
 - Vytvoření Docker image s kompilací a spuštěním aplikace
 - Psaní dokumentace a příprava repozitáře pro snadné sestavení a spuštění
 
----
+## Obsah repozitáře
+```
+java-nginx-analyzer/
+├── .dockerignore
+├── .gitattributes
+├── .gitignore
+├── Dockerfile
+├── README.md
+├── build.gradle
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
+├── settings.gradle
+├── gradle/
+│   └── wrapper/
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+└── src/
+    └── main/
+        └── java/
+            ├── Main.java
+            ├── NginxDataReader.java
+            └── NginxLogEntry.java
+```
 
 ## Požadavky
 Před spuštěním projektu je nutné mít nainstalované:
