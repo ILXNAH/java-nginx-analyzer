@@ -82,7 +82,7 @@ V hlavním adresáři projektu spusť:
 docker build -t java-nginx-analyzer .
 ```
 
-📌 Poznámka: 
+Pozn.: 
 Build může pár minut trvat, protože Gradle musí stáhnout závislosti a sestavit projekt.
 
 #### 2️⃣ Spuštění aplikace v kontejneru
