@@ -5,9 +5,9 @@
 2. 🛠 [Požadavky](#požadavky)
 3. 🚀 [Jak sestavit a spustit aplikaci](#jak-sestavit-a-spustit-aplikaci)
     - 📍 [Lokální spuštění (bez Dockeru)](#lokální-spuštění-bez-dockeru)
-        - 🏗️ [Zkompiluj a sestav aplikaci](#1️⃣-zkompiluj-a-sestav-aplikaci)
-        - 🏃 [Spusť aplikaci](#2️⃣-spusť-aplikaci)
-        - 🔍 [Ověř dostupnost metrik](#3️⃣-ověř-dostupnost-metrik)
+        - 🏗️ [Kompilace a sestavení aplikace](#1️⃣-kompilace-a-sestavení-aplikace)
+        - 🏃 [Spuštění aplikace](#2️⃣-spuštění-aplikace)
+        - 🔍 [Ověření dostupnosti metrik](#3️⃣-ověření-dostupnosti-metrik)
     - 🐳 [Spuštění v Dockeru](#spuštění-v-dockeru)
         - 🏗️ [Vytvoření Docker image](#1️⃣-vytvoření-docker-image)
         - 🏃 [Spuštění aplikace v kontejneru](#2️⃣-spuštění-aplikace-v-kontejneru)
@@ -40,13 +40,13 @@ Před spuštěním projektu je nutné mít nainstalované:
 ### Lokální spuštění (bez Dockeru)
 Otevři terminál v kořenovém adresáři projektu a postupuj následovně:
 
-#### 1️⃣ **Zkompiluj a sestav aplikaci**
+#### 1️⃣ **Kompilace a sestavení aplikace**
 
 ```sh
 ./gradlew build
 ```
 
-#### 2️⃣ **Spusť aplikaci**
+#### 2️⃣ **Spuštění aplikace**
 
 ```sh
 java -cp "build/libs/*" Main
@@ -58,7 +58,7 @@ Application is running. Press 'e' to stop.
 HTTPServer listening on http://localhost:9400/metrics
 ```
 
-#### 3️⃣ **Ověř dostupnost metrik**
+#### 3️⃣ **Ověření dostupnosti metrik**
 
 Linux/macOS:
 ```sh
