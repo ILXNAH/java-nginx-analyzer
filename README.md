@@ -42,12 +42,12 @@ HTTPServer listening on http://localhost:9400/metrics
 
 Linux/macOS:
 ```sh
-wget -q -O - http://localhost:9400/metrics | grep nginxlog_status_codes_total
+wget -q -O - http://localhost:9400/metrics | grep nginxlog_status_group_total
 ```
 
 Windows (PowerShell):
 ```powershell
-(Invoke-WebRequest -Uri "http://localhost:9400/metrics" -UseBasicParsing).Content -split "`n" | Where-Object {$_ -match "nginxlog_status_codes_total" -and $_ -notmatch "# "}
+(Invoke-WebRequest -Uri "http://localhost:9400/metrics" -UseBasicParsing).Content -split "`n" | Where-Object {$_ -match "nginxlog_status_group_total" -and $_ -notmatch "# "}
 ```
 
 ## 🐳 Spuštění v Dockeru
