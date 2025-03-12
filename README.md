@@ -1,5 +1,16 @@
 # Java Nginx Analyzer (Prometheus Metrics Counter)
 
+## 📑 Obsah
+1. [📌 Popis projektu](#-popis-projektu)
+2. [🛠 Požadavky](#-požadavky)
+3. [🚀 Jak sestavit a spustit aplikaci](#-jak-sestavit-a-spustit-aplikaci)
+   - [📍 Lokální spuštění (bez Dockeru)](#-lokální-spuštění-bez-dockeru)
+   - [🐳 Spuštění v Dockeru](#-spuštění-v-dockeru)
+4. [📂 Soubory a konfigurace](#-soubory-a-konfigurace)
+5. [✅ Shrnutí / Přehled příkazů](#-shrnutí--přehled-příkazů)
+
+---
+
 ## 📌 Popis projektu
 Tento projekt je jednoduchý analyzátor Nginx logů, který vystavuje Prometheus metriky. 
 Aplikace běží na **Java 21** a je možné ji spustit jak lokálně, tak v Docker kontejneru. Metriky jsou dostupné na:
