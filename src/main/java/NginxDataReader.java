@@ -18,16 +18,14 @@ public class NginxDataReader {
           "^(\\S+) - - \\[([^\\]]+)\\] \"([^\"]+)\" (\\d+) (\\d+) \"([^\"]*)\" \"(.+?)\"$",
           Pattern.UNIX_LINES);
 
-  private static Counter statusCodesCounter;
+  // Definujeme jeden Counter, ale s různými label hodnotami
+  private static final Counter statusCounter = Counter.builder()
+      .name("nginxlog_status_group_total")
+      .help("Total number of grouped status codes from nginx log")
+      .labelNames("group")
+      .register();
 
-  private NginxDataReader() {
-    statusCodesCounter =
-        Counter.builder()
-            .name("nginxlog_status_codes_total")
-            .help("Total number of status codes from nginx log")
-            .labelNames("status")
-            .register();
-  }
+  private NginxDataReader() {}
 
   public static NginxDataReader create() {
     return new NginxDataReader();
@@ -51,7 +49,17 @@ public class NginxDataReader {
   }
 
   private static void metricLogEntry(NginxLogEntry nginxLogEntry) {
-    statusCodesCounter.labelValues(String.valueOf(nginxLogEntry.statusCode())).inc();
+    int statusCode = nginxLogEntry.statusCode();
+    
+    if (statusCode >= 200 && statusCode < 300) {
+      statusCounter.labelValues("2xx").inc();
+    } else if (statusCode >= 300 && statusCode < 400) {
+      statusCounter.labelValues("3xx").inc();
+    } else if (statusCode >= 400 && statusCode < 500) {
+      statusCounter.labelValues("4xx").inc();
+    } else if (statusCode >= 500 && statusCode < 600) {
+      statusCounter.labelValues("5xx").inc();
+    }
   }
 
   static Optional<NginxLogEntry> parseLine(String line) {
@@ -64,11 +72,8 @@ public class NginxDataReader {
       int responseSize = Integer.parseInt(matcher.group(5));
       String userAgent = matcher.group(6);
 
-      Optional<NginxLogEntry> maybeNginxLogEntry =
-          Optional.of(
-              new NginxLogEntry(ipAddress, dateTime, request, statusCode, responseSize, userAgent));
-
-      return maybeNginxLogEntry;
+      return Optional.of(
+          new NginxLogEntry(ipAddress, dateTime, request, statusCode, responseSize, userAgent));
     }
     log.warn("Line does not match the pattern: {}", line);
     return Optional.empty();

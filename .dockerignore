@@ -1,0 +1,13 @@
+# Docker Ignore File
+
+# Nebude kopírován Git repozitář
+.git
+
+# Nebude kopírována složka se zkompilovanými soubory (Gradle build output)
+build/
+
+# Nebude kopírována cache Gradlu
+.gradle/
+
+# (MacOS) Skryté soubory od Finderu nebudou kopírovány
+.DS_Store

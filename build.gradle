@@ -1,9 +1,10 @@
 plugins {
     id 'java'
+	id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
-group 'cz.seznam.fulltext.example.'
-version '1.0-SNAPSHOT'
+group = 'cz.seznam.fulltext.example.'
+version = '1.0-SNAPSHOT'
 
 ext {
     javaSourceCompatibility = JavaVersion.VERSION_21
@@ -21,11 +22,13 @@ dependencies {
     implementation "io.prometheus:prometheus-metrics-instrumentation-jvm:${prometheusVersion}"
     implementation "io.prometheus:prometheus-metrics-exporter-httpserver:${prometheusVersion}"
 
-    // logging
+    // Logging (Log4j musí být součástí aplikace, ne jen runtime)
     implementation "org.slf4j:slf4j-api:${slf4jVersion}"
-    runtimeOnly "log4j:log4j:${log4jVersion}"
-    runtimeOnly "org.slf4j:slf4j-reload4j:${slf4jVersion}"
+	implementation "org.slf4j:slf4j-reload4j:${slf4jVersion}"
+	implementation "log4j:log4j:${log4jVersion}"
+	
     testRuntimeOnly "org.slf4j:slf4j-simple:${slf4jVersion}"
+	
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitPlatformVersion}"
     testImplementation "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-engine:${junitPlatformVersion}"
@@ -39,7 +42,6 @@ project.getDependencies().add(JavaPlugin.ANNOTATION_PROCESSOR_CONFIGURATION_NAME
 project.getDependencies().add(JavaPlugin.COMPILE_ONLY_CONFIGURATION_NAME, lombok);
 project.getDependencies().add(JavaPlugin.TEST_ANNOTATION_PROCESSOR_CONFIGURATION_NAME, lombok);
 project.getDependencies().add(JavaPlugin.TEST_COMPILE_ONLY_CONFIGURATION_NAME, lombok);
-
 
 repositories {
     mavenLocal()
@@ -63,3 +65,21 @@ tasks.named('wrapper') {
     distributionType = Wrapper.DistributionType.ALL
     distributionUrl = "https://services.gradle.org/distributions/gradle-${gradleVersion}-all.zip"
 }
+
+tasks.named('jar') {
+    manifest {
+        attributes 'Main-Class': 'Main'
+    }
+}
+
+tasks.named('shadowJar') {
+    archiveBaseName.set('java-nginx-analyzer')
+    archiveClassifier.set('')
+    archiveVersion.set('1.0-SNAPSHOT')
+
+    manifest {
+        attributes 'Main-Class': 'Main'
+    }
+}
+
+build.dependsOn shadowJar
