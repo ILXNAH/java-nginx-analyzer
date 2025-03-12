@@ -129,5 +129,5 @@ build/     # Nebude kopírována složka se zkompilovanými soubory
 | **Spuštění lokálně**        | `java -cp "build/libs/*" Main` |
 | **Build Docker image**      | `docker build -t java-nginx-analyzer .` |
 | **Spuštění v Dockeru**      | `docker run -p 9400:9400 java-nginx-analyzer` |
-| **Ověření metrik (Linux/macOS)** | `wget -q -O - \`<br>`http://localhost:9400/metrics | grep nginxlog_status_group_total` |
+| **Ověření metrik (Linux/macOS)** | `wget -q -O - http://localhost:9400/metrics \| grep nginxlog_status_group_total` |
 | **Ověření metrik (Windows)** | `(Invoke-WebRequest -Uri "http://localhost:9400/metrics" -UseBasicParsing).Content -split "`n" | Where-Object {$_ -match "nginxlog_status_group_total" -and $_ -notmatch "# "}` |
