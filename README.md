@@ -20,13 +20,13 @@ Před spuštěním projektu je nutné mít nainstalované:
 ### 📍 Lokální spuštění (bez Dockeru)
 Otevři terminál v kořenovém adresáři projektu a postupuj následovně:
 
-1️⃣ **Zkompiluj a sestav aplikaci**
+#### 1️⃣ **Zkompiluj a sestav aplikaci**
 
 ```sh
 ./gradlew build
 ```
 
-2️⃣ **Spusť aplikaci**
+#### 2️⃣ **Spusť aplikaci**
 
 ```sh
 java -cp "build/libs/*" Main
@@ -38,7 +38,7 @@ Application is running. Press 'e' to stop.
 HTTPServer listening on http://localhost:9400/metrics
 ```
 
-3️⃣ **Ověř dostupnost metrik**
+#### 3️⃣ **Ověř dostupnost metrik**
 
 Linux/macOS:
 ```sh
@@ -50,10 +50,10 @@ Windows (PowerShell):
 (Invoke-WebRequest -Uri "http://localhost:9400/metrics" -UseBasicParsing).Content -split "`n" | Where-Object {$_ -match "nginxlog_status_group_total" -and $_ -notmatch "# "}
 ```
 
-## 🐳 Spuštění v Dockeru
+### 🐳 Spuštění v Dockeru
 Aplikaci je možné zabalit do Docker image a spustit v kontejneru.
 
-### 1️⃣ Vytvoření Docker image
+#### 1️⃣ Vytvoření Docker image
 
 V hlavním adresáři projektu spusť:
 ```sh
@@ -63,7 +63,7 @@ docker build -t java-nginx-analyzer .
 📌 Poznámka: 
 Build trvá přibližně 5 minut, protože Gradle musí stáhnout závislosti a sestavit projekt.
 
-### 2️⃣ Spuštění aplikace v kontejneru
+#### 2️⃣ Spuštění aplikace v kontejneru
 Po úspěšném buildu spusť kontejner na portu 9400:
 ```sh
 docker run -p 9400:9400 java-nginx-analyzer
@@ -75,7 +75,7 @@ Application is running. Press 'e' to stop.
 HTTPServer listening on http://localhost:9400/metrics
 ```
 
-### 3️⃣ Ověření metrik v Dockeru
+#### 3️⃣ Ověření metrik v Dockeru
 Zkontroluj, zda metriky běží:
 
 Linux/macOS:
