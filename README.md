@@ -123,7 +123,7 @@ build/     # Nebude kopírována složka se zkompilovanými soubory
 - Aplikace je distribuována jako Fat JAR, tzn. všechny závislosti jsou zabaleny do jednoho .jar souboru
 - Pro sestavení tohoto Fat JAR souboru se používá Shadow plugin
 - Konfigurace Main-Class atributu v manifestu umožňuje spustit aplikaci jednoduše pomocí `java -jar`
-- Výsledný soubor se nachází v build/libs/java-nginx-analyzer-1.0-SNAPSHOT.jar
+- Výsledný soubor se nachází v `build/libs/java-nginx-analyzer-1.0-SNAPSHOT.jar`
 
 #### Definované závislosti:
 - Prometheus Metrics – knihovny pro sběr metrik
