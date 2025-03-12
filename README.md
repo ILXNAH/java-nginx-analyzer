@@ -1,17 +1,20 @@
 # Java Nginx Analyzer (Prometheus Metrics Counter)
 
-## 📑 Obsah
-1. [📌 Popis projektu](#-popis-projektu)
-2. [🛠 Požadavky](#-požadavky)
-3. [🚀 Jak sestavit a spustit aplikaci](#-jak-sestavit-a-spustit-aplikaci)
-   - [📍 Lokální spuštění (bez Dockeru)](#-lokální-spuštění-bez-dockeru)
-   - [🐳 Spuštění v Dockeru](#-spuštění-v-dockeru)
-4. [📂 Soubory a konfigurace](#-soubory-a-konfigurace)
-5. [✅ Shrnutí / Přehled příkazů](#-shrnutí--přehled-příkazů)
+## Obsah
+1. 📌 [Popis projektu](#popis-projektu)
+2. 🛠 [Požadavky](#požadavky)
+3. 🚀 [Jak sestavit a spustit aplikaci](#jak-sestavit-a-spustit-aplikaci)
+    - 📍 [Lokální spuštění (bez Dockeru)](#lokální-spuštění-bez-dockeru)
+    - 🐳 [Spuštění v Dockeru](#spuštění-v-dockeru)
+4. 📂 [Soubory a konfigurace](#soubory-a-konfigurace)
+    - 📝 [Dockerfile](#dockerfile)
+    - 🚫 [.dockerignore](#dockerignore)
+    - ⚙️ [Gradle konfigurace](#gradle-konfigurace)
+5. 📋 [Přehled příkazů](#přehled-příkazů)
 
 ---
 
-## 📌 Popis projektu
+## Popis projektu
 Tento projekt je jednoduchý analyzátor Nginx logů, který vystavuje Prometheus metriky. 
 Aplikace běží na **Java 21** a je možné ji spustit jak lokálně, tak v Docker kontejneru. Metriky jsou dostupné na:
 
@@ -19,16 +22,16 @@ http://localhost:9400/metrics
 
 ---
 
-## 🛠 Požadavky
+## Požadavky
 Před spuštěním projektu je nutné mít nainstalované:
 - **Java 21** (např. OpenJDK / Temurin)
 - **Docker Engine** (např. Docker Desktop)
 
 ---
 
-## 🚀 Jak sestavit a spustit aplikaci
+## Jak sestavit a spustit aplikaci
 
-### 📍 Lokální spuštění (bez Dockeru)
+### Lokální spuštění (bez Dockeru)
 Otevři terminál v kořenovém adresáři projektu a postupuj následovně:
 
 #### 1️⃣ **Zkompiluj a sestav aplikaci**
@@ -61,7 +64,7 @@ Windows (PowerShell):
 (Invoke-WebRequest -Uri "http://localhost:9400/metrics" -UseBasicParsing).Content -split "`n" | Where-Object {$_ -match "nginxlog_status_group_total" -and $_ -notmatch "# "}
 ```
 
-### 🐳 Spuštění v Dockeru
+### Spuštění v Dockeru
 Aplikaci je možné zabalit do Docker image a spustit v kontejneru.
 
 #### 1️⃣ Vytvoření Docker image
@@ -99,9 +102,11 @@ Windows (PowerShell):
 (Invoke-WebRequest -Uri "http://localhost:9400/metrics" -UseBasicParsing).Content -split "`n" | Where-Object {$_ -match "nginxlog_status_group_total" -and $_ -notmatch "# "}
 ```
 
+👉 Alternativně můžeš metriky zobrazit i přímo v prohlížeči: [http://localhost:9400/metrics](http://localhost:9400/metrics)
+
 ---
 
-## 📂 Soubory a konfigurace
+## Soubory a konfigurace
 ### 📝 Dockerfile
 Obsahuje instrukce pro sestavení Docker image:
 - Použití Eclipse Temurin JDK 21
@@ -132,7 +137,7 @@ build/     # Nebude kopírována složka se zkompilovanými soubory
 
 ---
 
-## ✅ Shrnutí / Přehled příkazů
+## Přehled příkazů
 
 | Akce                        | Příkaz |
 |:----------------------------|:------------------|
