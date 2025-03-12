@@ -106,9 +106,16 @@ build/     # Nebude kopírována složka se zkompilovanými soubory
 ```
 
 ### ⚙️ Gradle konfigurace (build.gradle)
-- Použití Shadow pluginu pro sestavení Fat JAR souboru
-- Definované závislosti pro Prometheus Metrics a SLF4J Logging
-- Konfigurace Main-Class atributu v manifestu
+#### 1️⃣ Použití Shadow pluginu pro sestavení Fat JAR souboru
+- Aplikace je distribuována jako Fat JAR, což znamená, že všechny závislosti jsou zabaleny do jednoho .jar souboru.
+- Pro sestavení tohoto Fat JAR souboru se používá Shadow plugin
+- Konfigurace Main-Class atributu v manifestu umožňuje spustit aplikaci jednoduše pomocí `java -jar`
+- Výsledný soubor se nachází v build/libs/java-nginx-analyzer-1.0-SNAPSHOT.jar
+
+#### Definované závislosti:
+- Prometheus Metrics – knihovny pro sběr metrik
+- SLF4J + Log4J – logging frameworky
+- JUnit + Mockito – testovací závislosti
 
 ## ✅ Shrnutí / Přehled příkazů
 
