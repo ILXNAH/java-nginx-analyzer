@@ -9,7 +9,7 @@
 4. 📂 [Soubory a konfigurace](#soubory-a-konfigurace)
     - 📝 [Dockerfile](#dockerfile)
     - 🚫 [.dockerignore](#dockerignore)
-    - ⚙️ [Gradle konfigurace](#gradle-konfigurace)
+    - ⚙️ [Gradle konfigurace](#gradle-konfigurace-buildgradle)
 5. 📋 [Přehled příkazů](#přehled-příkazů)
 
 ---
