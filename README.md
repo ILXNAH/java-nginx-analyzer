@@ -88,6 +88,8 @@ Windows (PowerShell):
 (Invoke-WebRequest -Uri "http://localhost:9400/metrics" -UseBasicParsing).Content -split "`n" | Where-Object {$_ -match "nginxlog_status_group_total" -and $_ -notmatch "# "}
 ```
 
+---
+
 ## 📂 Soubory a konfigurace
 ### 📝 Dockerfile
 Obsahuje instrukce pro sestavení Docker image:
@@ -116,6 +118,8 @@ build/     # Nebude kopírována složka se zkompilovanými soubory
 - Prometheus Metrics – knihovny pro sběr metrik
 - SLF4J + Log4J – logging frameworky
 - JUnit + Mockito – testovací závislosti
+
+---
 
 ## ✅ Shrnutí / Přehled příkazů
 
