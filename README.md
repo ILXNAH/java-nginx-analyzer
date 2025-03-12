@@ -61,7 +61,7 @@ docker build -t java-nginx-analyzer .
 ```
 
 📌 Poznámka: 
-Build trvá přibližně 5 minut, protože Gradle musí stáhnout závislosti a sestavit projekt.
+Build může pár minut trvat, protože Gradle musí stáhnout závislosti a sestavit projekt.
 
 #### 2️⃣ Spuštění aplikace v kontejneru
 Po úspěšném buildu spusť kontejner na portu 9400:
@@ -80,12 +80,12 @@ Zkontroluj, zda metriky běží:
 
 Linux/macOS:
 ```sh
-wget -q -O - http://localhost:9400/metrics | grep nginxlog_status_codes_total
+wget -q -O - http://localhost:9400/metrics | grep nginxlog_status_group_total
 ```
 
 Windows (PowerShell):
 ```powershell
-(Invoke-WebRequest -Uri "http://localhost:9400/metrics" -UseBasicParsing).Content -split "`n" | Where-Object {$_ -match "nginxlog_status_codes_total" -and $_ -notmatch "# "}
+(Invoke-WebRequest -Uri "http://localhost:9400/metrics" -UseBasicParsing).Content -split "`n" | Where-Object {$_ -match "nginxlog_status_group_total" -and $_ -notmatch "# "}
 ```
 
 ## 📂 Soubory a konfigurace
@@ -102,7 +102,7 @@ Aby se minimalizovala velikost image, ignorují se:
 .git       # Nebude kopírován Git repozitář
 build/     # Nebude kopírována složka se zkompilovanými soubory
 .gradle/   # Nebude kopírována cache Gradlu
-.DS_Store  # Skryté soubory od Finderu (MacOS)
+.DS_Store  # Skryté soubory od Finderu (MacOS) nebudou kopírovány
 ```
 
 ### ⚙️ Gradle konfigurace (build.gradle)
